@@ -56,4 +56,4 @@ Scenario: Import would exceed the class capacity
     When I upload a file "alunos.csv" containing these 3 new IDs
     Then I am redirected to the "Capacity limit would be exceeded" screen
     And the screen shows the error message: "Import failed. Adding 3 students would exceed the class limit of 50 seats."
-    And the "Class E" student list remains with 48 students
+    And the "Class E" student list remains with 48 students only
