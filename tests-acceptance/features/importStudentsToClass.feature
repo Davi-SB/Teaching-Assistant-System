@@ -50,10 +50,10 @@ Scenario: Partial import — blank registration
     And "Class D" now has student "111" enrolled
 
 Scenario: Import would exceed the class capacity
-    Given I am logged in as a teacher and on the "Class E" page
-    And "Class E" has a limit of 50 seats and already has 48 enrolled students
+    Given I am logged in as a teacher and on the "Class D" page
+    And "Class D" has a limit of 50 seats and already has 48 enrolled students
     And the system has students with IDs "111", "222", and "333"
     When I upload a file "alunos.csv" containing these 3 new IDs
     Then I am redirected to the "Capacity limit would be exceeded" screen
     And the screen shows the error message: "Import failed. Adding 3 students would exceed the class limit of 50 seats."
-    And the "Class E" student list remains with 48 students only
+    And the "Class D" student list remains with 48 students only
