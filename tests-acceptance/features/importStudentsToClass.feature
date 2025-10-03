@@ -31,7 +31,7 @@ Scenario: Import with an invalid extension
     Then I am redirected to the "Error case" screen
     And the screen shows the error message: "The uploaded file is empty or not supported (only .xlsx or .csv allowed). Please upload a file with valid registration numbers."
 
-Scenario: Partial import — registration not found in the student registry
+Scenario: Partial import: registration not found in the student registry
     Given I am logged in as a teacher and on the "Class A" page
     And the system has the student with ID "111" but no student with ID "999"
     When I upload a file "alunos.csv" containing ID "111" on row 1, ID "999" on row 2, and "222" on row 3
@@ -40,7 +40,7 @@ Scenario: Partial import — registration not found in the student registry
     And the screen shows the rejected list: "Row 2: Registration '999' not found in the student registry."
     And "Class A" now has students "111" and "222" enrolled
 
-Scenario: Partial import — blank registration
+Scenario: Partial import: blank registration
     Given I am logged in as a teacher and on the "Class A" page
     And the system has the student with ID "111"
     When I upload a file "alunos.xlsx" where row 1 has a blank registration cell and row 2 contains ID "111"
